@@ -1,0 +1,23 @@
+{
+  "name": "winBox",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "css:compile": "sass --style=expanded src/sass/winbox.scss dist/css/winbox.css",
+    "css:compile-minify": "sass --style=compressed --no-source-map src/sass/winbox.scss dist/css/winbox.css",
+    "build": "rollup -c",
+    "build-all": "pnpm build && pnpm css:compile"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@rollup/plugin-typescript": "^8.3.0",
+    "rollup": "^2.64.0",
+    "sass": "^1.49.0",
+    "tslib": "^2.3.1",
+    "typescript": "^4.5.5"
+  }
+}
