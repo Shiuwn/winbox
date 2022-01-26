@@ -39,7 +39,7 @@ $separator: '-';
       @if meta.type-of($key)=='string' and string.length($key) == 0 {
         $sep: '';
       }
-      $classMap: map.set($classMap, '.' + map.get($item, class) + $sep + $key , (
+      $classMap: map.set($classMap, map.get($item, class) + $sep + $key , (
         property: map.get($item, property),
         value: $value
       ))
