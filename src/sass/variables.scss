@@ -1,34 +1,116 @@
-$colorMap: (
-  'blue': (
-    '': #005ec1,
-    50: #005ec1,
-    100: #007cff,
-    150: #56a6fa,
-    200: #dfefff,
-    250: #f0f8ff,
+@use 'functions';
+@use 'sass:list';
+@use 'sass:map';
+$colorMap: () !default;
+$colorMap: map.merge(
+  (
+    'blue': (
+      '': #005ec1,
+      50: #005ec1,
+      100: #007cff,
+      150: #56a6fa,
+      200: #dfefff,
+      250: #f0f8ff,
+    ),
+    'green': (
+      '': #0d757e,
+      50: #0d757e,
+      100: #10a0ad,
+      150: #51b9c3,
+      200: #d8f3f2,
+      250: #eefdfe,
+    ),
+    'orange': (
+      '': #d36b08,
+      50: #d36b08,
+      100: #ffa940,
+      150: #fec861,
+      200: #fff3de,
+      250: #fcf9f3,
+    ),
+    'red': (
+      '': #cf2c2c,
+      50: #cf2c2c,
+      100: #e54e4e,
+      150: #f87871,
+      200: #ffe7e7,
+      250: #fff8f8,
+    ),
   ),
-  'green': (
-    '': #0d757e,
-    50: #0d757e,
-    100: #10a0ad,
-    150: #51b9c3,
-    200: #d8f3f2,
-    250: #eefdfe,
-  ),
-  'orange': (
-    '': #d36b08,
-    50: #d36b08,
-    100: #ffa940,
-    150: #fec861,
-    200: #fff3de,
-    250: #fcf9f3,
-  ),
-  'red': (
-    '': #cf2c2c,
-    50: #cf2c2c,
-    100: #e54e4e,
-    150: #f87871,
-    200: #ffe7e7,
-    250: #fff8f8,
-  ),
+  $colorMap
 );
+$spacer: 8px;
+$spacers: () !default;
+$spacers: map.merge(
+  (
+    '': $spacer * 1,
+    0: $spacer * 0,
+    1: $spacer * 1,
+    2: $spacer * 2,
+    3: $spacer * 3,
+    4: $spacer * 4,
+    5: $spacer * 5,
+    6: $spacer * 6,
+  ),
+  $spacers
+);
+
+$colorsClassList: (
+  (
+    class: bg,
+    property: background-color,
+  ),
+  (
+    class: border,
+    property: border-color,
+  )
+);
+
+$spacerClassList: (
+  (
+    class: mt,
+    property: margin-top,
+    value: $spacers,
+  ),
+  (
+    class: mb,
+    property: margin-bottom,
+    value: $spacers,
+  ),
+  (
+    class: ml,
+    property: margin-left,
+    value: $spacers,
+  ),
+  (
+    class: mr,
+    property: margin-right,
+    value: $spacers,
+  ),
+  (
+    class: mx,
+    property: margin-left margin-right,
+    value:
+      map.merge(
+        $spacers,
+        (
+          auto: auto,
+        )
+      ),
+  ),
+  (
+    class: my,
+    property: margin-top margin-bottom,
+    value:
+      map.merge(
+        $spacers,
+        (
+          auto: auto,
+        )
+      ),
+  )
+);
+
+$colorsClassList: functions.map-class-list($colorsClassList, $colorMap);
+
+$classList: list.join($colorsClassList, $spacerClassList);

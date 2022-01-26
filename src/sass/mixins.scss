@@ -1,0 +1,16 @@
+@use "sass:map";
+@use "sass:meta";
+@use "functions";
+@use "variables";
+
+$classMap: functions.convert-class-map(variables.$classList);
+@debug $classMap;
+@mixin apply-class($class) {
+  $classItem: map.get($classMap, $class);
+  @if $classItem != null {
+    @each $property in map.get($classItem, property) {
+      #{$property}: map.get($classItem, value)
+    }
+  }
+}
+

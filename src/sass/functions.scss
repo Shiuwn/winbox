@@ -1,0 +1,51 @@
+@use 'sass:list';
+@use 'sass:map';
+@use "sass:meta";
+@use "sass:string";
+$separator: '-';
+@function map-class-list($list, $map) {
+  $newList: ();
+  @each $item in $list {
+    // @debug $item;
+    @each $key, $value in $map {
+      $newList: list.append(
+        $newList,
+        (
+          class: map.get($item, class) + $separator + $key,
+          property: map.get($item, property),
+          value: $value,
+        )
+      );
+    }
+  }
+  @return $newList
+};
+// @debug map-class-list((
+//   (
+//     class: bg,
+//     property: background-color
+//   ),
+//   (
+//     class: border,
+//     property: border-color
+//   )
+// ), variables.$colorMap)
+
+@function convert-class-map ($classList) {
+  $classMap: ();
+  @each $item in $classList {
+    @each $key, $value in map.get($item, value) {
+      $sep: $separator;
+      @if meta.type-of($key)=='string' and string.length($key) == 0 {
+        $sep: '';
+      }
+      $classMap: map.set($classMap, '.' + map.get($item, class) + $sep + $key , (
+        property: map.get($item, property),
+        value: $value
+      ))
+    }
+
+  }
+  @return $classMap
+};
+
