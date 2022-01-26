@@ -108,6 +108,36 @@ $spacerClassList: (
           auto: auto,
         )
       ),
+  ),
+  (
+    class: pl,
+    property: padding-left,
+    value: $spacers,
+  ),
+  (
+    class: pr,
+    property: padding-right,
+    value: $spacers,
+  ),
+  (
+    class: pt,
+    property: padding-top,
+    value: $spacers,
+  ),
+  (
+    class: pb,
+    property: padding-bottom,
+    value: $spacers,
+  ),
+  (
+    class: px,
+    property: padding-left padding-right,
+    value: $spacers,
+  ),
+  (
+    class: py,
+    property: padding-top padding-bottom,
+    value: $spacers,
   )
 );
 
@@ -137,6 +167,22 @@ $borderClassList: (
     class: round,
     property: border-radius,
     value: $border-radius,
+  ),
+  (
+    class: border,
+    property: border-style,
+    value: (
+      solid: solid,
+      dashed: dashed,
+      none: none,
+      hidden: hidden,
+      dotted: dotted,
+      double: double,
+      inset: inset,
+      outset: outset,
+      groove: groove,
+      ridge: ridge
+    )
   )
 );
 
