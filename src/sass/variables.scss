@@ -237,6 +237,118 @@ $rectSizeClassList: (
   )
 );
 
+$displayClassList:(
+  (
+    class: flex,
+    property: display,
+    value: (
+      '': flex
+    )
+  ),
+  (
+    class: inline,
+    property: display,
+    value: (
+      '': inline
+    )
+  ),
+  (
+    class: inline-block,
+    property: display,
+    value: (
+      '': inline-block
+    )
+  ),
+  (
+    class: block,
+    property: display,
+    value: (
+      '': block
+    )
+  ),
+  (
+    class: hide,
+    property: display,
+    value: (
+      '': none
+    )
+  ),
+  (
+    class: inline-flex,
+    property: display,
+    value: (
+      '': inline-flex
+    )
+  ),
+  (
+    class: justify,
+    property: justify-content,
+    value: (
+      start: flex-start,
+      end: flex-end,
+      center: center,
+      between: space-between,
+      evenly: space-evenly,
+      around: space-around
+    )
+  ),
+  (
+    class: justify-items,
+    property: justify-items,
+    value: (
+      start: start,
+      end: end,
+      center: center,
+      strecth: stretch
+    )
+  ),
+  (
+    class: justify-self,
+    property: justify-self,
+    value: (
+      auto: auto,
+      start: start,
+      end: end,
+      center: center,
+      stretch: stretch
+    )
+  ),
+  (
+    class: items,
+    property: align-items,
+    value: (
+      start: flex-start,
+      end: flex-end,
+      center: center,
+      baseline: baseline,
+      stretch: stretch
+    )
+  ),
+  (
+    class: content,
+    property: align-content,
+    value: (
+      start: flex-start,
+      end: flex-end,
+      between: space-between,
+      around: space-around,
+      evenly: space-evenly
+    )
+  ),
+  (
+    class: self,
+    property: align-self,
+    value: (
+      auto: auto,
+      start: flex-start,
+      end: flex-end,
+      center: center,
+      stretch: stretch,
+      baseline: baseline
+    )
+  )
+);
+
 $colorsClassList: functions.map-class-list($colorsClassList, $colorMap);
 
 $classTypeList: (
@@ -244,7 +356,8 @@ $classTypeList: (
   $spacerClassList,
   $borderClassList,
   // $boxShadowClassList,
-  $rectSizeClassList
+  $rectSizeClassList,
+  $displayClassList
 );
 
 $classList: functions.flat-list($classTypeList);
