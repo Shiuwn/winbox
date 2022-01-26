@@ -4,7 +4,7 @@
 @use "variables";
 
 $classMap: functions.convert-class-map(variables.$classList);
-@debug $classMap;
+// @debug $classMap;
 @mixin apply-class($class) {
   $classItem: map.get($classMap, $class);
   @if $classItem != null {
