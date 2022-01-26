@@ -1,7 +1,7 @@
 @use 'sass:list';
 @use 'sass:map';
-@use "sass:meta";
-@use "sass:string";
+@use 'sass:meta';
+@use 'sass:string';
 $separator: '-';
 @function map-class-list($list, $map) {
   $newList: ();
@@ -18,8 +18,8 @@ $separator: '-';
       );
     }
   }
-  @return $newList
-};
+  @return $newList;
+}
 // @debug map-class-list((
 //   (
 //     class: bg,
@@ -31,21 +31,31 @@ $separator: '-';
 //   )
 // ), variables.$colorMap)
 
-@function convert-class-map ($classList) {
+@function convert-class-map($classList) {
   $classMap: ();
   @each $item in $classList {
     @each $key, $value in map.get($item, value) {
       $sep: $separator;
-      @if meta.type-of($key)=='string' and string.length($key) == 0 {
+      @if meta.type-of($key) == 'string' and string.length($key) == 0 {
         $sep: '';
       }
-      $classMap: map.set($classMap, map.get($item, class) + $sep + $key , (
-        property: map.get($item, property),
-        value: $value
-      ))
+      $classMap: map.set(
+        $classMap,
+        map.get($item, class) + $sep + $key,
+        (
+          property: map.get($item, property),
+          value: $value,
+        )
+      );
     }
-
   }
-  @return $classMap
-};
+  @return $classMap;
+}
 
+@function flat-list($list) {
+  $flatList: ();
+  @each $item in $list {
+    $flatList: list.join($flatList, $item);
+  }
+  @return $flatList;
+}
