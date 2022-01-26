@@ -1,7 +1,7 @@
 @use "mixins";
-
+$prefix: '';
 @each $class,$value in mixins.$classMap {
-  #{$class} {
+  .#{$prefix}#{$class} {
     @include mixins.apply-class($class);
   }
 }
