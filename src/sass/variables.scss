@@ -396,6 +396,89 @@ $displayClassList:(
   )
 );
 
+$layoutClassList: (
+  (
+    class: relative,
+    property: position,
+    value: (
+      '': relative
+    )
+  ),
+  (
+    class: static,
+    property: position,
+    value: (
+      '': static
+    )
+  ),
+  (
+    class: absolute,
+    property: position,
+    value: (
+      '': absolute
+    )
+  ),
+  (
+    class: fixed,
+    property: position,
+    value: (
+      '': fixed
+    )
+  ),
+  (
+    class: sticky,
+    property: position,
+    value: (
+      '': sticky
+    )
+  ),
+  (
+    class: float,
+    property: float,
+    value: (
+      left: left,
+      right: right,
+      none: none
+    )
+  ),
+  (
+    class: overflow,
+    property: overflow,
+    value: (
+      hidden: hidden,
+      auto: auto,
+      visible: visible,
+      scroll: scroll,
+      clip: clip,
+      x-auto: auto,
+      y-auto: auto,
+      x-hidden: hidden
+    )
+  ),
+  (
+    class: box,
+    property: box-sizing,
+    value: (
+      border: border-box,
+      content: content-box
+    )
+  ),
+  (
+    class: visible,
+    property: visibility,
+    value: (
+      '': visible
+    )
+  ),
+  (
+    class: invisible,
+    property: visibility,
+    value: (
+      '': hidden
+    )
+  )
+);
+
 $colorsClassList: functions.map-class-list($colorsClassList, $colorMap);
 
 $classTypeList: (
